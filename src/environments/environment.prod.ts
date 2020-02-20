@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseURL: 'https://infonews-payareli.herokuapp.com/api'
 };

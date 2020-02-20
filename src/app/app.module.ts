@@ -40,6 +40,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptor } from './shared/request.interceptor';
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserModule,
     NoopAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
 
     MatCheckboxModule,
     MatCheckboxModule,
@@ -88,7 +91,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

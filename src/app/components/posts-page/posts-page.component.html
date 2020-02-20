@@ -1,6 +1,6 @@
 <div>
-    <mat-card *ngFor="let post of [1, 2, 3]" class="mb-3">
-        <mat-card-title>Title</mat-card-title>
-        <mat-card-subtitle>21.22.222</mat-card-subtitle>
+    <mat-card *ngFor="let post of postsService.posts" class="mb-3" [routerLink]="[post.id]">
+        <mat-card-title>{{ post.title }}</mat-card-title>
+        <mat-card-subtitle>{{ post.createdAt | date:'medium' }}</mat-card-subtitle>
     </mat-card>
 </div>
