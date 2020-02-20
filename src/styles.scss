@@ -3,36 +3,36 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-$list: 1,2,3,4,5,6,7,8,9,10,11,12;
-@each $var in $list {
-    $direction: (t:top, b:bottom, l:left, r:right);
-    @each $d, $dir in $direction {
-        .m#{$d}-#{$var} {
-            margin-#{$dir}: $var * 0.5 + rem;
+$measures: 1,2,3,4,5,6,7,8,9,10,11,12;
+@each $measure in $measures {
+    $directions: (t:top, b:bottom, l:left, r:right);
+    @each $directionShort, $direction in $directions {
+        .m#{$directionShort}-#{$measure} {
+            margin-#{$direction}: $measure * 0.5 + rem!important;
         }
-        .p#{$d}-#{$var} {
-            padding-#{$dir}: $var * 0.5 + rem;
+        .p#{$directionShort}-#{$measure} {
+            padding-#{$direction}: $measure * 0.5 + rem!important;
         }
     }
 
-    .mx-#{$var} {
-        margin-left: $var * 0.5 + rem;
-        margin-right: $var * 0.5 + rem;
+    .mx-#{$measure} {
+        margin-left: $measure * 0.5 + rem!important;
+        margin-right: $measure * 0.5 + rem!important;
     }
 
-    .px-#{$var} {
-        padding-left: $var * 0.5 + rem;
-        padding-right: $var * 0.5 + rem;
+    .px-#{$measure} {
+        padding-left: $measure * 0.5 + rem!important;
+        padding-right: $measure * 0.5 + rem!important;
     }
 
-    .my-#{$var} {
-        margin-top: $var * 0.5 + rem;
-        margin-bottom: $var * 0.5 + rem;
+    .my-#{$measure} {
+        margin-top: $measure * 0.5 + rem!important;
+        margin-bottom: $measure * 0.5 + rem!important;
     }
 
-    .py-#{$var} {
-        padding-top: $var * 0.5 + rem;
-        padding-bottom: $var * 0.5 + rem;
+    .py-#{$measure} {
+        padding-top: $measure * 0.5 + rem!important;
+        padding-bottom: $measure * 0.5 + rem!important;
     }
 
 }

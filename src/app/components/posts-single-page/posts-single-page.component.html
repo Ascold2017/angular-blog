@@ -1,1 +1,15 @@
-<p>posts-single-page works!</p>
+<mat-card *ngIf="postsService.post; else loading">
+    <mat-card-header>
+        <mat-card-title>
+            <h1>{{ postsService.post.title }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>{{ postsService.post.createdAt | date:'medium' }} <span>Author: {{ postsService.post.author}}</span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{ postsService.post.text }}
+    </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+    <mat-spinner mode="indeterminate"></mat-spinner>
+</ng-template>

@@ -13,6 +13,7 @@ interface Post {
   providedIn: 'root'
 })
 export class PostsService {
+  post: Post | null = null
   posts: Post[] = []
   page: number = 1
   constructor(private http: HttpClient) { }
@@ -29,7 +30,10 @@ export class PostsService {
     })
   }
 
-  getPost(id) {
-    return this.http.get<Post>('/post/' + id)
+  getPost(id: string) {
+    this.http.get<Post>('/post/' + id)
+    .subscribe(post => {
+      this.post = post;
+    })
   }
 }
